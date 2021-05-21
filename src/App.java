@@ -1,13 +1,17 @@
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import frontEnd.*;
+import org.graphstream.graph.Graph;
+
+import backEnd.*;
+import frontEnd.appUI;
 
 public class App {
+
     public static void main(String[] args) throws Exception {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                appUI ex = new appUI(null);
-                ex.setVisible(true);
+                appUI app = new appUI();
             }
         });
     }

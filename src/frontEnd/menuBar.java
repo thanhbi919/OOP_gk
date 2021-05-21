@@ -1,15 +1,19 @@
 package frontEnd;
 
-import javax.swing.JMenu;
+import javax.swing.JFrame;
+import javax.swing.*;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class menuBar extends JMenuBar {
-    public menuBar() {
-        initmenuBar();
-    }
+import backEnd.openFile;
 
-    private void initmenuBar() {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+public class menuBar extends JMenuBar {
+
+    public menuBar(MenuListener menuItemListener) {
         // Decalre menus
         JMenu fileMenu = new JMenu("File");
         JMenu viewMenu = new JMenu("View");
@@ -36,7 +40,7 @@ public class menuBar extends JMenuBar {
         aboutMenuItem.setActionCommand("about");
 
         // Add listenmer
-        MenuListener menuItemListener = new MenuListener();
+        // MenuListener menuItemListener = new MenuListener(app);
         openMenuItem.addActionListener(menuItemListener);
         saveMenuItem.addActionListener(menuItemListener);
         saveasMenuItem.addActionListener(menuItemListener);
@@ -67,5 +71,4 @@ public class menuBar extends JMenuBar {
         add(viewMenu);
         add(helpMenu);
     }
-
 }

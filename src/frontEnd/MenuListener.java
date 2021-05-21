@@ -1,13 +1,24 @@
 package frontEnd;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.File;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
+import org.graphstream.graph.Graph;
+
+import backEnd.openFile;
+
 class MenuListener implements ActionListener {
+    public VerticalToolbar obj;
+    public appUI ui;
+
+    public MenuListener(VerticalToolbar obj, appUI ui) {
+        this.obj = obj;
+        this.ui = ui;
+    }
+
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getActionCommand());
         switch (e.getActionCommand()) {
@@ -42,8 +53,11 @@ class MenuListener implements ActionListener {
         int result = fileChooser.showOpenDialog(frame);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            // System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            Graph graph = openFile.readfile(selectedFile.getAbsolutePath());
+            ui.loadGraph(graph);
         }
+
     }
 
     private void saveText() {

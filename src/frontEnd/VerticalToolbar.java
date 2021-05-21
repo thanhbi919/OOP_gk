@@ -1,26 +1,28 @@
 package frontEnd;
 
 import java.awt.*;
+import java.awt.event.*;
 
 import javax.swing.*;
+import javax.swing.event.*;
 
-public class verticalToolbar extends JToolBar {
-    public verticalToolbar() {
-        initVerticalToolbar();
+public class VerticalToolbar extends JToolBar {
+
+    JTextField sNodeText = new JTextField(10);
+    JTextField dNodeText = new JTextField(10);
+
+    public VerticalToolbar(MenuListener menulistener) {
+        initVerticalToolbar(menulistener);
     }
 
-    private void initVerticalToolbar() {
+    private void initVerticalToolbar(MenuListener menulistener) {
         setFloatable(false);
         setMargin(new Insets(50, 10, 5, 5));
         setLayout(new GridBagLayout());
-        JPanel trace = new JPanel();
 
         // Declare components
         JLabel sNodeLabel = new JLabel("Start Node: ");
         JLabel dNodeLabel = new JLabel("Destination Node:  ");
-
-        JTextField sNodeText = new JTextField(10);
-        JTextField dNodeText = new JTextField(10);
 
         JButton execButton = new JButton("Run");
 
@@ -28,7 +30,6 @@ public class verticalToolbar extends JToolBar {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-        gbc.weightx = 0.5;
         gbc.weighty = 0.4;
 
         gbc.gridx = 0;
@@ -51,6 +52,7 @@ public class verticalToolbar extends JToolBar {
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.gridwidth = 2;
+        execButton.addActionListener((ActionListener) menulistener);
         add(execButton, gbc);
     }
 }
