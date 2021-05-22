@@ -1,0 +1,28 @@
+node {
+  shape: box;
+  /*fill-mode: plain;  Default.          */
+  fill-color: white; /* Default is black. */
+  text-size: 20;
+  text-alignment: center;
+  stroke-mode: plain; /* Default is none.  */
+  stroke-color: blue; /* Default is black. */
+  size-mode: fit;
+  text-padding: 50;
+  padding: 10;
+}
+
+node.marked {
+  fill-color: red;
+}
+
+edge.marked {
+  fill-color: red;
+}
+
+node.dekiru {
+  fill-color: green;
+}
+
+edge.dekiru {
+  fill-color: green;
+}

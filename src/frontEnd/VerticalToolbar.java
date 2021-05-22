@@ -1,15 +1,13 @@
 package frontEnd;
 
 import java.awt.*;
-import java.awt.event.*;
 
 import javax.swing.*;
-import javax.swing.event.*;
 
 public class VerticalToolbar extends JToolBar {
 
-    JTextField sNodeText = new JTextField(10);
-    JTextField dNodeText = new JTextField(10);
+    static JTextField sNodeText = new JTextField(10);
+    static JTextField dNodeText = new JTextField(10);
 
     public VerticalToolbar(MenuListener menulistener) {
         initVerticalToolbar(menulistener);
@@ -25,7 +23,7 @@ public class VerticalToolbar extends JToolBar {
         JLabel dNodeLabel = new JLabel("Destination Node:  ");
 
         JButton execButton = new JButton("Run");
-
+        execButton.setActionCommand("run");
         // Add components
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -52,7 +50,15 @@ public class VerticalToolbar extends JToolBar {
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.gridwidth = 2;
-        execButton.addActionListener((ActionListener) menulistener);
+        execButton.addActionListener(menulistener);
         add(execButton, gbc);
     }
+
+    public static String[] getSD() {
+        String[] sourceDestination = new String[2];
+        sourceDestination[0] = sNodeText.getText();
+        sourceDestination[1] = dNodeText.getText();
+        return sourceDestination;
+    }
+
 }
