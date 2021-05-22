@@ -32,11 +32,4 @@ public class GraphPanel extends JPanel {
         mainpanel.add(viewPanel);
         return mainpanel;
     }
-
-    public static void addClickListener() throws InterruptedException {
-        ViewerPipe fromViewer = viewer.newViewerPipe();
-        fromViewer.addViewerListener(new ClickListener(viewer, fromViewer));
-        fromViewer.blockingPump();
-        fromViewer.addSink(StoreGraph.getGraph());
-    }
 }
