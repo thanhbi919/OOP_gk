@@ -9,14 +9,14 @@ import org.graphstream.graph.Node;
 
 public final class StoreGraph {
     public static Graph MainGraph;
-    public static ArrayList<ArrayList<String>> PathLists;
-    public static ArrayList<String> list;
 
     public static void create(String fileName) {
         if (fileName != null)
             MainGraph = OpenFile.readfile(fileName);
         MainGraph.setAttribute("ui.quality");
         MainGraph.setAttribute("ui.antialias");
+        MainGraph.setAttribute("ui.stylesheet", "url(file://" + System.getProperty("user.dir") + "/styling.css" + ")");
+
         System.gc();
     }
 
@@ -33,7 +33,12 @@ public final class StoreGraph {
         return nodes;
     }
 
+    public static List<Edge> getAdjacencyEdges(Node node) {
+        return node.leavingEdges().toList();
+    }
+
     public static List<Node> getAdjacency(String node) {
         return getAdjacency(MainGraph.getNode(node));
     }
+
 }

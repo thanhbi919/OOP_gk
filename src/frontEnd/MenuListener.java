@@ -9,17 +9,18 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 
-import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 
+import App.App;
+import backEnd.FindAction;
 import backEnd.FindAllPath;
 import backEnd.StoreGraph;
 
 class MenuListener implements ActionListener {
     public VerticalToolbar obj;
-    public AppUI ui;
+    public App ui;
 
-    public MenuListener(VerticalToolbar obj, AppUI ui) {
+    public MenuListener(VerticalToolbar obj, App ui) {
         this.obj = obj;
         this.ui = ui;
     }
@@ -88,7 +89,8 @@ class MenuListener implements ActionListener {
             if (StoreGraph.getGraph() == null)
                 return;
 
-            ui.loadGraph(StoreGraph.getGraph());
+            ((App) ui).loadGraph(StoreGraph.getGraph());
+            FindAction.stopFind();
         }
 
     }
@@ -110,10 +112,10 @@ class MenuListener implements ActionListener {
         System.out.println(fileChooser.getSelectedFile().getName());
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            BufferedImage image = new BufferedImage(ui.mainpanel.getWidth(), ui.mainpanel.getHeight(),
+            BufferedImage image = new BufferedImage(((App) ui).mainpanel.getWidth(), ((App) ui).mainpanel.getHeight(),
                     BufferedImage.TYPE_INT_RGB);
             Graphics2D g2 = image.createGraphics();
-            ui.mainpanel.paint(g2);
+            ((App) ui).mainpanel.paint(g2);
             try {
                 ImageIO.write(image, "png", new File(selectedFile.getAbsolutePath() + ".png"));
             } catch (Exception e) {
@@ -146,18 +148,21 @@ class MenuListener implements ActionListener {
         String source = VerticalToolbar.getSD()[0];
         String destination = VerticalToolbar.getSD()[1];
         if (source.length() == 0 && destination.length() == 0) {
-            String max = StoreGraph.MainGraph.getNode(0).getId(), min = max;
-            System.out.println(max);
+            destination = StoreGraph.MainGraph.getNode(0).getId();
+            source = destination;
+            System.out.println(destination);
             for (Node node : StoreGraph.MainGraph) {
-                if (max.compareToIgnoreCase(node.getId()) < 0)
-                    max = node.getId();
-                if (min.compareToIgnoreCase(node.getId()) > 0)
-                    min = node.getId();
+                if (destination.compareToIgnoreCase(node.getId()) < 0)
+                    destination = node.getId();
+                if (source.compareToIgnoreCase(node.getId()) > 0)
+                    source = node.getId();
             }
-            FindAllPath.printAllPaths(min, max);
         }
-        if (StoreGraph.getGraph().getNode(source) != null && StoreGraph.getGraph().getNode(destination) != null)
-            FindAllPath.printAllPaths(source, destination);
+        FindAllPath.printAllPaths(source, destination);
 
+        FindAction.stopFind();
+        FindAction.isFinding = true;
+        FindAction.findNext(source);
+        FindAction.setDestination(destination);
     }
 }

@@ -14,13 +14,13 @@ node {
 node.marked {
   fill-color: red;
 }
+node.dekiru {
+  fill-color: green;
+}
 
 edge.marked {
   fill-color: red;
-}
-
-node.dekiru {
-  fill-color: green;
+  size: 10;
 }
 
 edge.dekiru {

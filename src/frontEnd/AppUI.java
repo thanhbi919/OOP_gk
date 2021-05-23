@@ -3,23 +3,16 @@ package frontEnd;
 import java.awt.*;
 
 import javax.swing.*;
-import org.graphstream.graph.Graph;
 
-import backEnd.StoreGraph;
+import App.App;
 
 public class AppUI extends JFrame {
-    public static JPanel mainpanel;
-
-    public AppUI() {
-        initappUI();
-        StoreGraph.create("graph.txt");
-        loadGraph(StoreGraph.getGraph());
-
+    public AppUI(App app) {
+        initappUI(app);
     }
 
-    private final void initappUI() {
-        MenuListener menuListener = new MenuListener(null, this);
-        // Create menu bar
+    private final void initappUI(App app) {
+        MenuListener menuListener = new MenuListener(null, app);
         MenuBar addMenuBar = new MenuBar(menuListener);
         setJMenuBar(addMenuBar);
 
@@ -27,23 +20,12 @@ public class AppUI extends JFrame {
         VerticalToolbar verticalToolbar = new VerticalToolbar(menuListener);
         menuListener.obj = verticalToolbar;
         add(verticalToolbar, BorderLayout.WEST);
+
         setSize(1000, 800);
         setTitle("OOP GK");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         setVisible(true);
-    }
-
-    public void loadGraph(Graph graph) {
-        if (mainpanel != null)
-            remove(mainpanel);
-        mainpanel = GraphPanel.create(graph);
-        add(mainpanel);
-        revalidate();
-    }
-
-    public void test(JPanel panel) {
-        add(mainpanel);
     }
 }

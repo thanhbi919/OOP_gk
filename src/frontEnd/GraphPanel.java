@@ -8,9 +8,6 @@ import org.graphstream.graph.Graph;
 import org.graphstream.ui.swing_viewer.SwingViewer;
 import org.graphstream.ui.swing_viewer.ViewPanel;
 import org.graphstream.ui.view.Viewer;
-import org.graphstream.ui.view.ViewerPipe;
-
-import backEnd.StoreGraph;
 
 public class GraphPanel extends JPanel {
     private static Viewer viewer;
