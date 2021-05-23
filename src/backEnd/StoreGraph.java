@@ -15,7 +15,8 @@ public final class StoreGraph {
             MainGraph = OpenFile.readfile(fileName);
         MainGraph.setAttribute("ui.quality");
         MainGraph.setAttribute("ui.antialias");
-        MainGraph.setAttribute("ui.stylesheet", "url(file://" + System.getProperty("user.dir") + "/styling.css" + ")");
+        MainGraph.setAttribute("ui.stylesheet",
+                "url(https://raw.githubusercontent.com/ducvuongpham/OOP_gk/master/styling.css)");
 
         System.gc();
     }

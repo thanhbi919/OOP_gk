@@ -49,7 +49,6 @@ public class FindAction {
         }
 
         pastNode = currentNode;
-        System.out.println(pastNode + currentNode);
     }
 
     public static void stopFind() {
