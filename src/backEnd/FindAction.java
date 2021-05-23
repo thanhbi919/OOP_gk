@@ -2,7 +2,6 @@ package backEnd;
 
 import java.util.ArrayList;
 
-import org.bouncycastle.util.Store;
 import org.graphstream.graph.Node;
 
 public class FindAction {
@@ -50,7 +49,6 @@ public class FindAction {
         }
 
         pastNode = currentNode;
-        System.out.println(pastNode + currentNode);
     }
 
     public static void stopFind() {
