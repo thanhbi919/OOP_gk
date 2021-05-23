@@ -3,6 +3,7 @@ package App;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+
 import org.graphstream.graph.Graph;
 import org.graphstream.ui.view.Viewer;
 import org.graphstream.ui.view.ViewerListener;
@@ -19,7 +20,9 @@ import org.graphstream.ui.swing_viewer.ViewPanel;
 public class App implements ViewerListener {
     protected boolean loop = true;
     JFrame frame;
-    public JPanel mainpanel;
+     JPanel mainpanel;
+     JPanel body;
+    JPanel waysPath;
     ViewPanel viewPanel;
     ViewerPipe fromViewer;
 
@@ -30,7 +33,10 @@ public class App implements ViewerListener {
 
     public App(Graph graph) {
         mainpanel = new JPanel();
+        body = new JPanel();
+        waysPath = new JPanel();
         frame = new AppUI(this);
+
         loadGraph(graph);
         while (loop) {
             fromViewer.pump();
@@ -38,6 +44,19 @@ public class App implements ViewerListener {
     }
 
     public void loadGraph(Graph graph) {
+        // create body
+        body.setLayout(new java.awt.BorderLayout());
+        body.add(mainpanel,BorderLayout.CENTER);
+        mainpanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Graph", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14))); 
+
+        body.add(waysPath,BorderLayout.SOUTH);
+        waysPath.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ways", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14))); 
+        waysPath.setPreferredSize(new java.awt.Dimension(0, 155));
+
+
+
+
+
         if (viewPanel != null)
             mainpanel.remove(viewPanel);
         Viewer viewer;
@@ -49,7 +68,7 @@ public class App implements ViewerListener {
         mainpanel.add(viewPanel);
         mainpanel.setLayout(new GridLayout());
 
-        frame.add(mainpanel);
+        frame.add(body);
 
         fromViewer = viewer.newViewerPipe();
         fromViewer.addViewerListener(this);

@@ -19,7 +19,6 @@ public class FindAllPath {
 
         printAllPathsUtil(s, d, pathList);
         System.out.println("\nAll printed! :D");
-        System.out.println(FindAction.PathLists);
         System.out.println("\n\n");
 
     }
