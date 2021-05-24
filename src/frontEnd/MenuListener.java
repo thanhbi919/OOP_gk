@@ -11,6 +11,7 @@ import javax.swing.JFileChooser;
 import javax.swing.*;
 
 import org.graphstream.graph.Node;
+import org.graphstream.stream.sync.SourceTime;
 
 import App.App;
 import backEnd.FindAction;
@@ -166,9 +167,12 @@ class MenuListener implements ActionListener {
         FindAction.stopFind();
         FindAction.isFinding = true;
         FindAction.findNext(source);
+        System.out.println(FindAction.PathLists.toString());
+        // App app = new App();
+        App.showWaysPath.setText(FindAction.PathLists.toString());
         FindAction.setDestination(destination);
         }catch(Exception e){
-            messageDialog.showMessage("Node not found");
+            showMessageDialog.showMessage("Node not found");
             obj.deleteText();
         }
         
