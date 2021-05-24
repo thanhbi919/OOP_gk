@@ -7,62 +7,62 @@ public class MenuBar extends JMenuBar {
     public MenuBar(MenuListener menuItemListener) {
         // Decalre menus
         JMenu fileMenu = new JMenu("File");
-        fileMenu.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//file1.png"));
+        fileMenu.setIcon(new ImageIcon("src//pictures//file1.png"));
 
         JMenu viewMenu = new JMenu("View");
-        viewMenu.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//edit.png"));
+        viewMenu.setIcon(new ImageIcon("src//pictures//edit.png"));
 
         JMenu helpMenu = new JMenu("Help");
-        helpMenu.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//help1.png")); // NOI18N
+        helpMenu.setIcon(new ImageIcon("src//pictures//help1.png")); 
    
 
         // Decalre menu items
         JMenuItem openMenuItem = new JMenuItem("Open");
         openMenuItem.setActionCommand("open");
-        openMenuItem.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//Open file.png")); 
+        openMenuItem.setIcon(new ImageIcon("src//pictures//Open file.png")); 
         
         
 
         JMenuItem saveMenuItem = new JMenuItem("Save");
         saveMenuItem.setActionCommand("saveText");
-        saveMenuItem.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//Save.png")); 
+        saveMenuItem.setIcon(new ImageIcon("src//pictures//Save.png")); 
 
 
 
         JMenuItem saveasMenuItem = new JMenuItem("Save as");
         saveasMenuItem.setActionCommand("saveasText");
-        saveasMenuItem.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//Save as.png")); 
+        saveasMenuItem.setIcon(new ImageIcon("src//pictures//Save as.png")); 
 
 
         JMenuItem exportImg = new JMenuItem("Export");
         exportImg.setActionCommand("exportImg");
-        exportImg.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//Hnet.com-image (1).png")); // NOI18N
+        exportImg.setIcon(new ImageIcon("src//pictures//Hnet.com-image (1).png")); // NOI18N
 
 
         JMenuItem exitMenuItem = new JMenuItem("Exit");
         exitMenuItem.setActionCommand("exit");
-        exitMenuItem.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//Exit.png")); // NOI18N
+        exitMenuItem.setIcon(new ImageIcon("src//pictures//Exit.png")); // NOI18N
 
 
         JMenuItem sizeMenuItem = new JMenuItem("Change font size");
         sizeMenuItem.setActionCommand("setFont");
-        sizeMenuItem.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//resize 1.png")); // NOI18N
+        sizeMenuItem.setIcon(new ImageIcon("src//pictures//resize 1.png")); // NOI18N
 
 
         JMenuItem colorMenuItem = new JMenuItem("Change color");
         colorMenuItem.setActionCommand("setColor");
-        colorMenuItem.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//change color.png")); // NOI18N
+        colorMenuItem.setIcon(new ImageIcon("src//pictures//change color.png")); // NOI18N
 
 
         JMenuItem helpMenuItem = new JMenuItem("Help");
         helpMenuItem.setActionCommand("help");
-        helpMenuItem.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//Help.png")); // NOI18N
+        helpMenuItem.setIcon(new ImageIcon("src//pictures//Help.png")); // NOI18N
 
 
 
         JMenuItem aboutMenuItem = new JMenuItem("About");
         aboutMenuItem.setActionCommand("about");
-        aboutMenuItem.setIcon(new ImageIcon("C://Users//thanh//Desktop//OOP_gk//src//Hinh//Hnet.com-image (2).png")); // NOI18N
+        aboutMenuItem.setIcon(new ImageIcon("src//pictures//Hnet.com-image (2).png")); // NOI18N
 
 
 

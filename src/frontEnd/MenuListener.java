@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
+import javax.swing.*;
 
 import org.graphstream.graph.Node;
 
@@ -19,6 +20,7 @@ import backEnd.StoreGraph;
 class MenuListener implements ActionListener {
     public VerticalToolbar obj;
     public App ui;
+    showMessageDialog messageDialog = new showMessageDialog();
 
     public MenuListener(VerticalToolbar obj, App ui) {
         this.obj = obj;
@@ -145,7 +147,8 @@ class MenuListener implements ActionListener {
     }
 
     private void run() {
-        String source = VerticalToolbar.getSD()[0];
+        try{
+            String source = VerticalToolbar.getSD()[0];
         String destination = VerticalToolbar.getSD()[1];
         if (source.length() == 0 && destination.length() == 0) {
             destination = StoreGraph.MainGraph.getNode(0).getId();
@@ -164,5 +167,10 @@ class MenuListener implements ActionListener {
         FindAction.isFinding = true;
         FindAction.findNext(source);
         FindAction.setDestination(destination);
+        }catch(Exception e){
+            messageDialog.showMessage("Node not found");
+            obj.deleteText();
+        }
+        
     }
 }

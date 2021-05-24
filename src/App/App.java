@@ -20,8 +20,8 @@ import org.graphstream.ui.swing_viewer.ViewPanel;
 public class App implements ViewerListener {
     protected boolean loop = true;
     JFrame frame;
-     JPanel mainpanel;
-     JPanel body;
+    public JPanel mainpanel;
+    JPanel body;
     JPanel waysPath;
     ViewPanel viewPanel;
     ViewerPipe fromViewer;
@@ -52,10 +52,6 @@ public class App implements ViewerListener {
         body.add(waysPath,BorderLayout.SOUTH);
         waysPath.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ways", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14))); 
         waysPath.setPreferredSize(new java.awt.Dimension(0, 155));
-
-
-
-
 
         if (viewPanel != null)
             mainpanel.remove(viewPanel);

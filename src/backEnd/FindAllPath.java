@@ -20,7 +20,6 @@ public class FindAllPath {
         printAllPathsUtil(s, d, pathList);
         System.out.println("\nAll printed! :D");
         System.out.println("\n\n");
-
     }
 
     private static ArrayList<ArrayList<String>> printAllPathsUtil(String u, String d, ArrayList<String> localPathList) {

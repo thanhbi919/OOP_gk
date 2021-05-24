@@ -49,6 +49,7 @@ public class FindAction {
         }
 
         pastNode = currentNode;
+        
     }
 
     public static void stopFind() {
