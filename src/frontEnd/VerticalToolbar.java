@@ -6,8 +6,9 @@ import javax.swing.*;
 
 public class VerticalToolbar extends JToolBar {
 
-    static JTextField sNodeText = new JTextField(10);
-    static JTextField dNodeText = new JTextField(10);
+    public static JTextField sNodeText = new JTextField(10);
+    public static JTextField dNodeText = new JTextField(10);
+    
 
     public VerticalToolbar(MenuListener menulistener) {
         initVerticalToolbar(menulistener);
@@ -53,7 +54,10 @@ public class VerticalToolbar extends JToolBar {
         execButton.addActionListener(menulistener);
         add(execButton, gbc);
     }
-
+    public static void deleteText(){
+        sNodeText.setText("");
+        dNodeText.setText("");
+    }
     public static String[] getSD() {
         String[] sourceDestination = new String[2];
         sourceDestination[0] = sNodeText.getText();
