@@ -14,18 +14,19 @@ public class MenuBar extends JMenuBar {
 
         JMenu helpMenu = new JMenu("Help");
         helpMenu.setIcon(new ImageIcon("src//pictures//help1.png")); 
-   
+
 
         // Decalre menu items
         JMenuItem openMenuItem = new JMenuItem("Open");
         openMenuItem.setActionCommand("open");
         openMenuItem.setIcon(new ImageIcon("src//pictures//Open file.png")); 
-        
+
         
 
         JMenuItem saveMenuItem = new JMenuItem("Save");
         saveMenuItem.setActionCommand("saveText");
         saveMenuItem.setIcon(new ImageIcon("src//pictures//Save.png")); 
+
 
 
 
@@ -44,9 +45,11 @@ public class MenuBar extends JMenuBar {
         exitMenuItem.setIcon(new ImageIcon("src//pictures//Exit.png")); // NOI18N
 
 
+
         JMenuItem sizeMenuItem = new JMenuItem("Change font size");
         sizeMenuItem.setActionCommand("setFont");
         sizeMenuItem.setIcon(new ImageIcon("src//pictures//resize 1.png")); // NOI18N
+
 
 
         JMenuItem colorMenuItem = new JMenuItem("Change color");
@@ -60,9 +63,11 @@ public class MenuBar extends JMenuBar {
 
 
 
+
         JMenuItem aboutMenuItem = new JMenuItem("About");
         aboutMenuItem.setActionCommand("about");
         aboutMenuItem.setIcon(new ImageIcon("src//pictures//Hnet.com-image (2).png")); // NOI18N
+
 
 
 
