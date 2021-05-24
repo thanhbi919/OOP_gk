@@ -10,9 +10,13 @@ import org.graphstream.ui.view.ViewerPipe;
 
 import backEnd.FindAction;
 import backEnd.StoreGraph;
+import backEnd.ZoomGraph;
 import frontEnd.AppUI;
 
 import java.awt.*;
+import java.awt.event.MouseWheelListener;
+import java.awt.event.MouseWheelEvent;
+
 import org.graphstream.ui.swing_viewer.SwingViewer;
 import org.graphstream.ui.swing_viewer.ViewPanel;
 
@@ -45,6 +49,13 @@ public class App implements ViewerListener {
         viewer.enableAutoLayout();
 
         viewPanel = (ViewPanel) viewer.addDefaultView(false);
+
+        viewPanel.addMouseWheelListener(new MouseWheelListener() {//add mouseWheelListener here
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent mwe) {
+                ZoomGraph.zoomGraphMouseWheelMoved(mwe, viewPanel);
+            }
+        });
 
         mainpanel.add(viewPanel);
         mainpanel.setLayout(new GridLayout());
