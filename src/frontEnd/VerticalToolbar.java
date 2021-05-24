@@ -4,6 +4,10 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import org.graphstream.graph.Node;
+
+import backEnd.StoreGraph;
+
 public class VerticalToolbar extends JToolBar {
 
     static JTextField sNodeText = new JTextField(10);
@@ -58,7 +62,25 @@ public class VerticalToolbar extends JToolBar {
         String[] sourceDestination = new String[2];
         sourceDestination[0] = sNodeText.getText();
         sourceDestination[1] = dNodeText.getText();
+        
+        Node SNode = StoreGraph.MainGraph.getNode(sourceDestination[0]);
+        Node DNode = StoreGraph.MainGraph.getNode(sourceDestination[1]);
+        if(SNode==null&&DNode!=null){
+            ShowError("Wrong Start Node!!");
+        }else if(SNode!=null && DNode==null){
+            ShowError("Wrong Destination Node!!");
+        }else if(SNode==null && DNode==null){
+            ShowError("Wrong Start Node and Destination Node!!");
+        };
+
         return sourceDestination;
     }
+
+    public static void  ShowError(String error){
+        JFrame frame = new JFrame("MESSAGE");
+        JOptionPane.showMessageDialog(frame, error, "Error", JOptionPane.ERROR_MESSAGE);
+        sNodeText.setText("");
+        dNodeText.setText("");
+}
 
 }

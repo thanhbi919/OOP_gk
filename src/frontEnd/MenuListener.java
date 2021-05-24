@@ -145,8 +145,9 @@ class MenuListener implements ActionListener {
     }
 
     private void run() {
-        String source = VerticalToolbar.getSD()[0];
-        String destination = VerticalToolbar.getSD()[1];
+        String[] SDNode = VerticalToolbar.getSD();
+        String source = SDNode[0];
+        String destination = SDNode[1];
         if (source.length() == 0 && destination.length() == 0) {
             destination = StoreGraph.MainGraph.getNode(0).getId();
             source = destination;
